@@ -150,6 +150,17 @@ html {
   background-color: #111111;
   color: #fff;
   padding: 0 4rem; }
+  .moviesShowCase-container,  .moviesTrending-container, .moviesTopRated-container,
+  .moviesComedy-container,  .moviesAnimation-container,  .moviesDoc-container{
+    display: flex;
+    overflow-x: scroll;
+  }
+  .modal{
+    position: fixed;
+    color: white;
+    width: 100%;
+    height: 10%;
+  }
   .movies__heading {
     padding-top: 2rem; }
   .movies__container::-webkit-scrollbar {
@@ -229,4 +240,4 @@ html {
           .movies__container--movie__netflix {
             height: 34rem; } }
 
-/*# sourceMappingURL=style.css.map */
+/* # sourceMappingURL=style.css.map */

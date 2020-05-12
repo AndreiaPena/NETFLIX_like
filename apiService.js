@@ -1,23 +1,23 @@
 const APÎ_URL = "https://api.themoviedb.org/3/movie/";
-const API_KEY = "2997c5290abfb556adf35db19e36cc28";
+const API_KEY = "b91314f1ac9c4c3911df38fae5afbc68";
 
 //1
-export function fetchMovie(movieId, cb) {
-  const url = ``;
+// export function fetchMovie(movieId, cb) {
+//   const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`;
 
-    var xhr_object = new XMLHttpRequest();
-    xhr_object.open("GET", url, false);
-    xhr_object.send(null);
+//     var xhr_object = new XMLHttpRequest();
+//     xhr_object.open("GET", url, false);
+//     xhr_object.send(null);
 
-    if (xhr_object.readyState == 4) {
-      return cb(JSON.parse(xhr_object.responseText));
-    }
+//     if (xhr_object.readyState == 4) {
+//       return cb(JSON.parse(xhr_object.responseText));
+//     }
   
-}
+// }
 
 //2
 // export default function fetchMovie(movieId) {
-//   const url = ``;
+//   const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`;
 
 //   return new Promise((resolve, reject) => {
 //     var xhr_object = new XMLHttpRequest();
@@ -40,20 +40,51 @@ export function fetchMovie(movieId, cb) {
 // }
 
 //3
-// export default async function fetchMovie(movieId) {
-//   const url = ``;
-//   let res = await fetch(url);
-//   let movie = await res.json();
-//   console.log(movie);
-//   return movie;
-// }
-
-export function fetchNetflixOriginals() {
-  const url = `/discover/tv?api_key=${API_KEY}&with_networks=213`;
+export  async function fetchMovie(movieId) {
+  const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`;
+  let res = await fetch(url);
+  let movie = await res.json();
+  // console.log(movie);
+  return movie;
 }
 
-export function fetchTrending() {}
+export async function fetchNetflixOriginals() {
+  const url = `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_networks=213`;
+  let res = await fetch(url);
+  let netflixOriginals = await res.json();
+  // console.log(netflixOriginals);
+  return netflixOriginals;
+}
 
-export function fetchTopRated() {}
+export async function fetchTrending() {
+  const url = `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_networks=213&sort_by=popularity.desc`;
+  let res = await fetch(url);
+  let trending = await res.json();
+  // console.log(trending);
+  return trending;
+}
 
-export function fetchByGenreMovies(genre) {}
+export async function fetchTopRated() {
+  const url = `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_networks=213&sort_by=vote_average.desc`;
+  let res = await fetch(url);
+  let topRated = await res.json();
+  // console.log(topRated);
+  return topRated;
+}
+
+export async function fetchByGenreMovies(genre) {
+  const url = `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_networks=213&with_genres=${genre}`;
+  let res = await fetch(url);
+  let genreMovies = await res.json();
+  // console.log(genreMovies);
+  return genreMovies;
+}
+
+
+export async function fetchModal() {
+  const url = `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_networks=213`;
+  let res = await fetch(url);
+  let filmsModal = await res.json();
+  // console.log(genreMovies);
+  return filmsModal;
+}
