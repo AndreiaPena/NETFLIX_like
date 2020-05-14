@@ -1,11 +1,14 @@
 import {fetchMovie} from "./apiService.js";
 import Header from "./components/Header.mjs";
-import Modal from "./components/Modal.mjs";
+import ModalSerie from "./components/ModalSerie.mjs";
 import {fetchNetflixOriginals} from "./apiService.js";
 import {fetchTrending} from "./apiService.js";
 import {fetchTopRated} from "./apiService.js";
 import {fetchByGenreMovies} from "./apiService.js";
 import {fetchModal} from "./apiService.js";
+import {fetchSearch} from "./apiService.js";
+
+
 
 
 // (() => {
@@ -47,6 +50,7 @@ import {fetchModal} from "./apiService.js";
   let netflixOriginals = await fetchNetflixOriginals();
   let container = document.querySelector(".moviesShowCase-container");
   let movies = netflixOriginals.results;
+  console.log(movies)
 
   for(let i = 1 ; i < movies.length ; i++){
     let movie = document.createElement('div');
@@ -56,6 +60,27 @@ import {fetchModal} from "./apiService.js";
     image.src = `https://image.tmdb.org/t/p/original/${movies[i].poster_path}`;
     container.appendChild(movie);
     movie.appendChild(image);
+    let id = movies[i].id;
+
+    let filmsModal = await fetchModal(id);
+    let modal = document.querySelector('.modal')
+    
+      image.addEventListener('click', ()=>{
+        modal.classList.remove('hide')
+        modal.classList.add('show')
+        modal.innerHTML = ModalSerie(filmsModal);
+        modal.style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${filmsModal.backdrop_path})`;
+        modal.style.backgroundSize = `cover`; 
+        let button = modal.querySelector('.modal__container-close');
+          button.addEventListener('click', (event) => {
+              event.preventDefault();
+              let test = modal.querySelector('.modal__container');
+              modal.style.backgroundImage = 'none' ;
+              modal.classList.remove('show')
+              modal.classList.add('hide')
+          });
+        })
+      
   }    
 })();
 
@@ -73,6 +98,26 @@ import {fetchModal} from "./apiService.js";
     image.src = `https://image.tmdb.org/t/p/w500/${movies[i].backdrop_path}`;
     container.appendChild(movie);
     movie.appendChild(image);
+    let id = movies[i].id;
+
+    let filmsModal = await fetchModal(id);
+    let modal = document.querySelector('.modal')
+    
+      image.addEventListener('click', ()=>{
+        modal.classList.remove('hide')
+        modal.classList.add('show')
+        modal.innerHTML = ModalSerie(filmsModal);
+        modal.style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${filmsModal.backdrop_path})`;
+        modal.style.backgroundSize = `cover`;
+        let button = modal.querySelector('.modal__container-close');
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            let test = modal.querySelector('.modal__container');
+            modal.style.backgroundImage = 'none' ;
+            modal.classList.remove('show')
+            modal.classList.add('hide')
+          });
+        })
   }    
 })();
 
@@ -89,6 +134,26 @@ import {fetchModal} from "./apiService.js";
     image.src = `https://image.tmdb.org/t/p/w500/${movies[i].backdrop_path}`;
     container.appendChild(movie);
     movie.appendChild(image);
+    let id = movies[i].id;
+
+    let filmsModal = await fetchModal(id);
+    let modal = document.querySelector('.modal')
+    
+      image.addEventListener('click', ()=>{
+        modal.classList.remove('hide')
+        modal.classList.add('show')
+        modal.innerHTML = ModalSerie(filmsModal);
+        modal.style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${filmsModal.backdrop_path})`;
+        modal.style.backgroundSize = `cover`;
+        let button = modal.querySelector('.modal__container-close');
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            let test = modal.querySelector('.modal__container');
+            modal.style.backgroundImage = 'none' ;
+            modal.classList.remove('show')
+            modal.classList.add('hide')
+          });
+        })
   }    
 })();
 
@@ -106,6 +171,26 @@ import {fetchModal} from "./apiService.js";
     image.src = `https://image.tmdb.org/t/p/w500/${movies[i].backdrop_path}`;
     container.appendChild(movie);
     movie.appendChild(image);
+    let id = movies[i].id;
+
+    let filmsModal = await fetchModal(id);
+    let modal = document.querySelector('.modal')
+    
+      image.addEventListener('click', ()=>{
+        modal.classList.remove('hide')
+        modal.classList.add('show')
+        modal.innerHTML = ModalSerie(filmsModal);
+        modal.style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${filmsModal.backdrop_path})`;
+        modal.style.backgroundSize = `cover`;
+        let button = modal.querySelector('.modal__container-close');
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            let test = modal.querySelector('.modal__container');
+            modal.style.backgroundImage = 'none' ;
+            modal.classList.remove('show')
+            modal.classList.add('hide')
+          });
+        })
   }    
 })();
 
@@ -122,6 +207,26 @@ import {fetchModal} from "./apiService.js";
     image.src = `https://image.tmdb.org/t/p/w500/${movies[i].backdrop_path}`;
     container.appendChild(movie);
     movie.appendChild(image);
+    let id = movies[i].id;
+
+    let filmsModal = await fetchModal(id);
+    let modal = document.querySelector('.modal')
+    
+      image.addEventListener('click', ()=>{
+        modal.classList.remove('hide')
+        modal.classList.add('show')
+        modal.innerHTML = ModalSerie(filmsModal);
+        modal.style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${filmsModal.backdrop_path})`;
+        modal.style.backgroundSize = `cover`;
+        let button = modal.querySelector('.modal__container-close');
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            let test = modal.querySelector('.modal__container');
+            modal.style.backgroundImage = 'none' ;
+            modal.classList.remove('show')
+            modal.classList.add('hide')
+          });
+        })
   }    
 })();
 
@@ -138,19 +243,38 @@ import {fetchModal} from "./apiService.js";
     image.src = `https://image.tmdb.org/t/p/w500/${movies[i].backdrop_path}`;
     container.appendChild(movie);
     movie.appendChild(image);
+    let id = movies[i].id;
+
+    let filmsModal = await fetchModal(id);
+    let modal = document.querySelector('.modal')
+    
+      image.addEventListener('click', ()=>{
+        modal.classList.remove('hide')
+        modal.classList.add('show')
+        modal.innerHTML = ModalSerie(filmsModal);
+        modal.style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${filmsModal.backdrop_path})`;
+        modal.style.backgroundSize = `cover`;
+        let button = modal.querySelector('.modal__container-close');
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            let test = modal.querySelector('.modal__container');
+            modal.style.backgroundImage = 'none' ;
+            modal.classList.remove('show')
+            modal.classList.add('hide')
+          });
+        })
   }    
 })();
 
 
-  (async() => {
-    let filmsModal = await fetchModal();
-    let films = document.getElementsByClassName('movies__container--movie')
-    let movies = filmsModal.results;
-  
-    for(let i = 1 ; i < movies.length ; i++){
-      films[i].addEventListener('click', ()=>{
-        document.getElementById("modal").innerHTML = Modal(movie);
-        document.getElementById("modal").style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`;
-      })
-    }  
-  })();
+
+const recherche = document.querySelector('.navigation__container--left__input');
+recherche.addEventListener('keyup', async(event) => {
+    const searchString = event.target.value.toLowerCase();
+    let movieList = await fetchSearch(searchString)
+    let movieResult = movieList.results
+    console.log(movieList)
+    console.log(searchString)
+});
+
+

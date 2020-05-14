@@ -155,12 +155,6 @@ html {
     display: flex;
     overflow-x: scroll;
   }
-  .modal{
-    position: fixed;
-    color: white;
-    width: 100%;
-    height: 10%;
-  }
   .movies__heading {
     padding-top: 2rem; }
   .movies__container::-webkit-scrollbar {
@@ -241,3 +235,102 @@ html {
             height: 34rem; } }
 
 /* # sourceMappingURL=style.css.map */
+
+.modal {
+  position: fixed;
+    z-index: 1; 
+    width: 100%;
+    top:  0; 
+    left: 0; 
+    color: #fff;
+    height: 52rem;
+}
+    
+.modal__container {
+     width: 70%;
+     padding-top: 3rem;
+     height: 100%;
+     padding-left: 5rem;
+     background: linear-gradient(90deg, #000 50%, transparent);
+  }
+
+  .modal__title {
+     font-size: 4rem;
+  }
+
+  .modal__note {
+     font-size: 2rem;
+     color: rgb(4, 196, 4);
+  }
+
+  .modal__info {
+     padding-top: 1.6rem;
+     font-size: 2rem;
+  }
+
+  .modal__description{
+     color: rgb(197, 197, 197);
+     padding-top: 2%;
+     padding-bottom: 2%;
+     font-size: 1.5rem;
+     width: 70%;
+     line-height: 1.5;
+     hyphens: auto;
+  }
+
+  .show {
+    top: 25%;
+    left: 0;
+    visibility: visible;
+ 
+  
+ }
+ 
+ .hide {
+     display: none;
+ }
+
+ .modal__container-btnPlay, .modal__container-btnFavouriteList {
+  cursor: pointer;
+  font-size: 1.6rem;
+  color: #fff;
+  outline: none;
+  border: none;
+  font-weight: 700;
+  border-radius: 0.2vw;
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+  margin-right: 1rem;
+  padding-top: 1rem;
+  background-color: rgba(51, 51, 51, 0.5);
+  padding-bottom: 1rem;
+  transition: all .2s
+ }
+
+ .modal__container-btnPlay:hover, .modal__container-btnFavouriteList:hover {
+  transform: scale(1.09); 
+}
+
+  .modal__container-btnPlay{
+    background-color: rgba(253, 0, 0, 0.767);
+  }
+
+  .modal__container-btnFavouriteList{
+    border: 0.5px solid white;
+  }
+
+  .modal__container-close{
+  cursor: pointer;
+  font-size: 3rem;
+  color: #fff;
+  outline: none;
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  border: none;
+  background-color: transparent;
+  }
+
+
+  
+  

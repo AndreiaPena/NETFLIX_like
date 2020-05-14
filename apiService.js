@@ -57,7 +57,7 @@ export async function fetchNetflixOriginals() {
 }
 
 export async function fetchTrending() {
-  const url = `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_networks=213&sort_by=popularity.desc`;
+  const url = `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&with_networks=213`;
   let res = await fetch(url);
   let trending = await res.json();
   // console.log(trending);
@@ -65,7 +65,7 @@ export async function fetchTrending() {
 }
 
 export async function fetchTopRated() {
-  const url = `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_networks=213&sort_by=vote_average.desc`;
+  const url = `https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY}`;
   let res = await fetch(url);
   let topRated = await res.json();
   // console.log(topRated);
@@ -81,10 +81,18 @@ export async function fetchByGenreMovies(genre) {
 }
 
 
-export async function fetchModal() {
-  const url = `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_networks=213`;
+export async function fetchModal(movieId) {
+  const url = `https://api.themoviedb.org/3/tv/${movieId}?api_key=${API_KEY}`;
   let res = await fetch(url);
   let filmsModal = await res.json();
-  // console.log(genreMovies);
+  // console.log(filmsModal);
   return filmsModal;
+}
+
+export  async function fetchSearch(searchItem) {
+  const url = `https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&include_adult=false&query=${searchItem}`;
+  let res = await fetch(url);
+  let search = await res.json();
+  // console.log(movie);
+  return search;
 }
