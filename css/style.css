@@ -144,7 +144,11 @@ html {
   background-color: #111111;
   min-height: 100%;
   padding-bottom: 4rem;
-  padding-left: 4rem; }
+  padding-left: 4rem; 
+  display: flex;
+  padding-top: 7rem;
+  flex-wrap: wrap;
+}
 
 .movies {
   background-color: #111111;
@@ -334,3 +338,17 @@ html {
 
   
   
+  .movies__container--movie_search {
+    cursor: pointer;
+    padding-top: 3rem;
+    padding-right: 1.3rem;
+    padding-bottom: 4rem;
+    height: 35rem;
+    min-height: 0; 
+    transition: all 450ms;
+    transform: center left;}
+
+
+.movies__container--movie_search:hover {
+    transform: scale(1.1);
+}

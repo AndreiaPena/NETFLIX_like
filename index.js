@@ -267,14 +267,45 @@ import {fetchSearch} from "./apiService.js";
 })();
 
 
-
+// var  timerId;
 const recherche = document.querySelector('.navigation__container--left__input');
-recherche.addEventListener('keyup', async(event) => {
+// function  makeAPICall() {
+recherche.addEventListener('input', async(event) => {
+   
     const searchString = event.target.value.toLowerCase();
     let movieList = await fetchSearch(searchString)
     let movieResult = movieList.results
-    console.log(movieList)
-    console.log(searchString)
-});
+    let tutu = document.querySelector('.search-container')
+    tutu.innerHTML =''
+    let toto = document.querySelector('.container')
+
+    if(searchString.length >= 1){
+      toto.classList.add('hide')
+    
+    for(let i = 1 ; i < movieResult.length ; i++){
+      let movie = document.createElement('div');
+      movie.className = "movies__container--movie_search";
+      let image = document.createElement('img');
+      image.className = "movies__container--movie-image";
+      image.src = `https://image.tmdb.org/t/p/w500/${movieResult[i].poster_path}`;
+      tutu.appendChild(movie);
+      movie.appendChild(image);
+      if (movieResult[i].poster_path === null) {
+        image.style.display = 'none';
+    }
+    }}else{
+      toto.classList.remove('hide')
+    }
+     
+}); 
+// }
+
+// var  debounceFunction  =  function (func, delay) {
+// 	// Cancels the setTimeout method execution
+// 	clearTimeout(timerId)
+
+// 	// Executes the func after delay time.
+// 	timerId  =  setTimeout(func, delay)
+// }
 
 
